@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <p>Error occurred </p>
+        <h1><%=message%></h1>
+        <h2><%=error.status%></h2>
+        <div>
+   			<%=error.stack%>
+  		</div>
+    </div>
+</body>
+
+</html>

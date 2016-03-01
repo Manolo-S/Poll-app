@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="lib/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/font-awesome.min.css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <script src="lib/jquery.min.js">
+    </script>
+    <script src="lib/bootstrap.min.js">
+    </script>
+    <script src="lib/highcharts.js">
+    </script>
+    <script src="javascripts/pollStorage.js">
+    </script>
+    <title></title>
+</head>
+<body onload="abc()">
+    <nav class='navbar navbar-default container'>
+        <div class='navbar-header'>
+            <a class='navbar-brand' href='#'>FCC-Voting</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a class="googleplus" href="/auth/google"><i class=
+                "fa fa-google-plus"></i></a>
+            </li>
+            <li>
+                <a class="twitter" href="/auth/twitter"><i class=
+                "fa fa-twitter"></i></a>
+            </li>
+            <li>
+                <a class="facebook" href="/auth/facebook"><i class=
+                "fa fa-facebook"></i></a>
+            </li>
+        </ul>
+    </nav>
+    <div class="jumbotron container">
+        <h3>Select Poll</h3>
+        <div id='poll-menu'></div>
+        <h3>Select vote categorie</h3>
+        <div id='categorie-menu'></div>
+        <button type='button' onclick='updatePoll()'>Submit vote</button>
+        <div id="container"></div>
+    </div>
+</body>
+</html>

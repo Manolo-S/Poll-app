@@ -14,7 +14,9 @@ function storePoll(poll) {
 	console.log('storePoll function called')
 	console.log('poll in storepoll', poll)
 	if (mongoose.connection.readyState = 0) { 
-		var db = mongoose.connect('mongodb://localhost/voteapp');
+		// var db = mongoose.connect('mongodb://localhost/voteapp');
+		var db = mongoose.connect('mongodb://piet:snot@ds019678.mlab.com:19678/poll-app');
+
 	}
 	pollModel.create({
 		pollName: poll.pollTitle,

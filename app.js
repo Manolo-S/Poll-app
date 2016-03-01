@@ -15,7 +15,9 @@ var data = require('./routes/data');
 var storeVote = require('./routes/store-vote');
 
 var app = express();
-var db = mongoose.connect('mongodb://localhost/voteapp');
+// var db = mongoose.connect('mongodb://localhost/voteapp');
+var db = mongoose.connect('mongodb://piet:snot@ds019678.mlab.com:19678/poll-app');
+
 var pollModel = require('./config/pollModel.js')
 
 function pollItemsFun(pollItem) {

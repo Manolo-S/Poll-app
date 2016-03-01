@@ -10,7 +10,9 @@ function updatePoll(updatedPoll) {
     };
     var id = updatedPoll._id;
     if (mongoose.connection.readyState = 0) { //apart bestand als het lukt
-		var db = mongoose.connect('mongodb://localhost/voteapp');
+		// var db = mongoose.connect('mongodb://localhost/voteapp');
+   var db = mongoose.connect('mongodb://piet:snot@ds019678.mlab.com:19678/poll-app');
+
 	}
     pollModel.findByIdAndUpdate(id, pollItems, function(error, polls) {
         if (error) {

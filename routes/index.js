@@ -3,22 +3,22 @@ var router = express.Router();
 
 
 
-function pollItemsFun(pollItem) {
-    return pollItem;
-}
+// function pollItemsFun(pollItem) {
+//     return pollItem;
+// }
 
-router.use(function(req,res,next){
+// router.use(function(req,res,next){
 
    
-                 next();
-            // });
+//                  next();
+//             // });
 
         
-// });
+// // });
 
 
     
-});
+// });
 
 
 

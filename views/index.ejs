@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link href="lib/bootstrap.min.css" rel="stylesheet">
-    <link href="lib/font-awesome.min.css" rel="stylesheet">
-    <link href="stylesheets/style.css" rel="stylesheet">
-    <script src="lib/jquery.min.js">
+    <link href="/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="/lib/font-awesome.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <script src="/lib/jquery.min.js">
     </script>
-    <script src="lib/bootstrap.min.js">
+    <script src="/lib/bootstrap.min.js">
     </script>
-    <script src="lib/highcharts.js">
+    <script src="/lib/highcharts.js">
     </script>
-    <script src="javascripts/pollStorage.js">
+    <script src="/javascripts/pollStorage.js">
     </script>
     <title></title>
 </head>
 <body onload="abc()">
+    <p>Login with social media to create your own poll!</p>
     <nav class='navbar navbar-default container'>
         <div class='navbar-header'>
             <a class='navbar-brand' href='#'>FCC-Voting</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="#">Home</a>
+                <a class="googleplus social" id='google-a' href="/auth/google"><i class=
+                "fa fa-google-plus" id='google'></i></a>
             </li>
             <li>
-                <a class="googleplus" href="/auth/google"><i class=
-                "fa fa-google-plus"></i></a>
+                <a class="twitter" id='twitter-a' href="/auth/twitter"><i class=
+                "fa fa-twitter" id='twitter'></i></a>
             </li>
             <li>
-                <a class="twitter" href="/auth/twitter"><i class=
-                "fa fa-twitter"></i></a>
-            </li>
-            <li>
-                <a class="facebook" href="/auth/facebook"><i class=
-                "fa fa-facebook"></i></a>
+                <a class="facebook" id='facebook-a' href="/auth/facebook"><i class=
+                "fa fa-facebook" id='facebook'></i></a>
             </li>
         </ul>
     </nav>
     <div class="jumbotron container">
-        <h3>Select Poll</h3>
+        <h3 id='h3'>Select Poll</h3>
         <div id='poll-menu'></div>
         <h3>Select vote categorie</h3>
         <div id='categorie-menu'></div>
-        <button type='button' onclick='updatePoll()'>Submit vote</button>
+        <button type='button' onclick='updatePoll()' id='submit'>Submit vote</button>
         <div id="container"></div>
     </div>
 </body>

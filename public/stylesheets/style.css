@@ -3,21 +3,20 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-.social a {
+
+#google, #twitter, #facebook {
     text-align: center;
-    font-size: 28px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    width: 43px;
-    height: 43px;
-    display: inline-block;
+    font-size: 16px;
+    display: block;
     padding-top: 4px;
-    background-clip: padding-box;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
+    color: white;
+    height: 20px;
+    width:15px;
+}
+
+#google-a, #twitter-a, #facebook-a{
+    display: block;
+    margin-right: 3px;
 }
 
 hr.small {
@@ -27,34 +26,43 @@ hr.small {
     border-color: #fff;
 }
 
-.googleplus {
-    
-    background: #dd4b39;
-    color: #ffffff;
-}
+
 .googleplus {
     background: #dd4b39;
-    color: #ffffff;
 }
 
 .linkedin {
     background: #0976b4;
-    color: #ffffff;
 }
 
 .github {
     background: #333;
-    color: #999;
 }
 .facebook{
-	color: #ffffff;
 	background: #3b5998;
 }
 .twitter {
     background: #55acee;
-    color: #ffffff;
+    /*color: #ffffff;*/
 }
 
 .menu {
     margin-bottom: 20px;
+}
+
+button {
+    margin: 10px 0px;
+}
+
+p {
+margin-left:63%;
+font-size: 12px;
+}
+
+/*h3 {
+    margin-top: 0px;
+}*/
+
+#h3{
+    margin-top: -30px;
 }

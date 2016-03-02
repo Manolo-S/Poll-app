@@ -20,12 +20,14 @@ function buildChart() {
             renderTo: 'container',
             type: 'bar'
         },
+         tooltip: {
+            formatter: function () {
+                return this.y;
+            }
+        },
         title: {
             text: pollName
-        },
-        subtitle: {
-            text: 'xxxxxxx'
-        },
+        },        
         xAxis: {
             categories: categories
         },
@@ -36,7 +38,10 @@ function buildChart() {
         },
         series: [{
             data: votes
-        }]
+        }],
+        legend: {
+            enabled: false
+        }
     };
 
     //build chart using options above

@@ -43,7 +43,6 @@ hr.small {
 }
 .twitter {
     background: #55acee;
-    /*color: #ffffff;*/
 }
 
 .menu {
@@ -59,10 +58,18 @@ margin-left:63%;
 font-size: 12px;
 }
 
-/*h3 {
-    margin-top: 0px;
-}*/
-
 #h3{
     margin-top: -30px;
+}
+
+#google-a:hover{
+ background-color: #ff8080;    
+}
+
+#twitter-a:hover{
+ background-color: #b3f0ff;    
+}
+
+#facebook-a:hover{
+ background-color: #99bbff;    
 }

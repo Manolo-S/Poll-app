@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.route('/google/callback')
     .get(passport.authenticate('google', {
-        successRedirect: '/create-poll',
+        successRedirect: '/create-poll-new', //TODO revert to create-poll
         failure: '/error/'
     }));
 

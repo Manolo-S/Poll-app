@@ -1,9 +1,12 @@
 #create-vote-app{
-	/*margin-left: 40px;
-	margin-right: 40px;*/
 	margin: 0 auto;
 	width: 30%
 }
+
+#brand{
+    color: #000;
+}
+
 
 button {
   margin-top: 10px;
@@ -13,4 +16,32 @@ button {
 input.btn-primary {
    margin-top: 10px;
   margin-right: 10px;
+}
+
+span {
+    margin: 15px 3px 0 3px;
+    display: block;    
+}
+
+.navbar {
+    position: static;
+    margin-top: 10px;
+    background-color: #ccf5ff;
+    color: #666;
+}
+
+.jumbotron {
+    background-color: #ccf5ff;
+}
+
+#home, .navbar-brand {
+	background-color:  #e6faff;
+	margin-right: 4px;
+	color: #666;
+}
+
+#h3{
+    margin-top: -20px;
+    margin-bottom: 30px;
+    text-align: center;
 }

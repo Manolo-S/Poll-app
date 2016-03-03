@@ -3,6 +3,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#brand{
+    color: #000;
+}
 
 #google, #twitter, #facebook {
     text-align: center;
@@ -73,3 +76,9 @@ font-size: 12px;
 #facebook-a:hover{
  background-color: #99bbff;    
 }
+
+.navbar, .jumbotron {
+    background-color: #ccf5ff;
+}
+
+

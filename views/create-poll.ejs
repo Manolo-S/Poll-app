@@ -7,32 +7,32 @@
             <link href="/stylesheets/createPoll.css" rel="stylesheet">
         </head>
         <body>
-            <nav class='navbar navbar-default container'>
+            <nav class='navbar navbar-default container' id='navbar'>
                 <div class='navbar-header'>
-                    <a class='navbar-brand' href='#'>FCC-Voting</a>
+                    <a class='navbar-brand' href='#' id='brand'>FCC Voting App</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="http://localhost:3000">Home</a>
+                        <a href="http://localhost:3000" id='home'>Home</a>
                     </li>
                     <li>
                         <img src="<%=user.image%>">
                     </li>
                     <li>
-                       <%=user.name%>
+                       <span><%=user.name%></span>
                     </li>
                 </ul>
             </nav>
             <div class="jumbotron container">
-                <h3>Create Poll</h3>
+                <h3 id='h3'>Create your poll</h3>
                 <form role="form">
                     <div class="form-group">
                         <label for="poll-title">Poll title:</label>
-                        <input class="form-control" id="poll-title">
+                        <input class="form-control" id="poll-title" placeholder='Title'>
                     </div>
                     <div class="form-group">
-                        <label for="categories">Poll categories:</label> <input class="form-control" id=
-                        "categories" >
+                        <label for="categories" >Poll categories (comma separated values):</label> <input class="form-control" id=
+                        "categories" placeholder='value1, value2, etc.'>
                     </div>
                     <button class="btn btn-default" type="submit" onclick="storePoll()">Submit</button>
                 </form>

@@ -45,7 +45,7 @@ router.use('/', function(req, res, next) {
 })
 
 router.get('/', function(req, res) {
-	res.render('create-poll'})
+	res.render('create-poll-new')
 });
 
 router.post('/', function(req, res) {

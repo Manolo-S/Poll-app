@@ -9,7 +9,7 @@ var session = require('express-session'); //TODO bekijk
 var mongoose = require('mongoose');
 
 var index = require('./routes/index');
-var createPoll = require('./routes/create-poll');
+var createPollNew = require('./routes/create-poll-new');
 var auth = require('./routes/auth');
 var data = require('./routes/data');
 var storeVote = require('./routes/store-vote');
@@ -39,7 +39,7 @@ app.use(session({secret: 'anything'})); //TODO bekijk Express-session package
 
 require('./config/passport')(app); //TODO bekijk
 app.use('/', index);
-app.use('/create-poll', createPoll);
+app.use('/create-poll-new', createPollNew);
 app.use('/auth', auth);
 app.use('/store-vote', storeVote);
 

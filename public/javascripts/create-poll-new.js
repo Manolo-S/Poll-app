@@ -1,3 +1,8 @@
+'use strict';
+
+var user = $('p').html();
+console.log(user);
+
 var RecipeDialog = React.createClass({
 
   render: function() {
@@ -89,7 +94,7 @@ var RecipeList = React.createClass({
 	}
 });
 
-
+function success(result){console.log('succes func called', result)};
 
 var RecipeBox = React.createClass({
 
@@ -98,6 +103,8 @@ var RecipeBox = React.createClass({
 		var recipes = [];
 		var recipeArr;
 		
+		 $.getJSON('http://localhost:3000/userdata', {userName: user}, success)
+
 		for (i = 0; i < sessionStorage.length; i++){
 		    recipeArr = sessionStorage.getItem(i).split(",");
 		    console.log(recipeArr);
@@ -145,11 +152,12 @@ var RecipeBox = React.createClass({
 		}
 
 		this.state.recipes.forEach(function(recipe){
+
 			console.log('recipe', recipe);
 			var pollName = recipe[1];
 			var categories = recipe.splice(2, recipe.length - 2);
 			console.log('cat', categories)
-			var poll = {pollTitle: pollName, categories: categories};
+			var poll = {userName: user, pollTitle: pollName, categories: categories};
 			console.log('poll', poll);
 		    $.post('http://localhost:3000/create-poll-new', poll);
 		});

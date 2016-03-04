@@ -19,6 +19,7 @@ function storePoll(poll) {
 
 	}
 	pollModel.create({
+		userName: poll.userName,
 		pollName: poll.pollTitle,
 		pollItems: poll.categories.map(createpollItems)
 	}, function(err, polls) {
@@ -45,12 +46,22 @@ router.use('/', function(req, res, next) {
 })
 
 router.get('/', function(req, res) {
-	res.render('create-poll-new')
+	console.log('createpollnewejs', req.user.displayName);
+	res.render('create-poll-new', {
+		user: {
+			name: req.user.displayName
+		}
+	})
+	
+
 });
 
 router.post('/', function(req, res) {
+
 	var poll = req.body;
 	storePoll(poll);
 });
 
 module.exports = router;
+
+

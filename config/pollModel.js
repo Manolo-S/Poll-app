@@ -8,6 +8,7 @@ var PollItemSchema = new Schema({
 });
 
 var PollSchema = new Schema({
+	pollNumber: String,
 	userName: String,
     pollName: String,
     pollItems: [PollItemSchema]
@@ -19,6 +20,8 @@ var PollSchema = new Schema({
 // });
 
 module.exports = mongoose.model('polls', PollSchema);
+
+
 
 
 

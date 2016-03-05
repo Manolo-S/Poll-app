@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var pollModel = require('../config/pollModel.js');
+var pollData;
 
 function createpollItems(categorie) {
 	return {
@@ -10,15 +11,13 @@ function createpollItems(categorie) {
 	};
 }
 
-function storePoll(poll) {
-	console.log('storePoll function called')
-	console.log('poll in storepoll', poll)
+function storePoll (poll){
 	if (mongoose.connection.readyState = 0) { 
-		// var db = mongoose.connect('mongodb://localhost/voteapp');
 		var db = mongoose.connect('mongodb://piet:snot@ds019678.mlab.com:19678/poll-app');
-
 	}
+
 	pollModel.create({
+		pollNumber: poll.pollNumber,
 		userName: poll.userName,
 		pollName: poll.pollTitle,
 		pollItems: poll.categories.map(createpollItems)
@@ -27,13 +26,31 @@ function storePoll(poll) {
 			var pollData = {
 				"pollData": polls
 			};
-		} else {
-		}
 		mongoose.connection.close(function() {
-			console.log(
-				'Mongoose connection disconnected');
-		});
+            console.log(
+                'Mongoose connection disconnected');
+	    });
+		} else {
+			console.log(err);
+		}
+	
 	});
+}
+
+
+function storePolls(pollData) {
+	console.log('storePoll function called')
+	
+	pollData = pollData.pollData;
+	console.log('polldata createpoll route', pollData);
+	console.log(Array.isArray(pollData));
+	pollModel.remove({ userName: pollData[0].userName}, callback)
+}
+
+
+function callback(){
+	console.log('callback', pollData);
+	pollData.pollData.map(storePoll);
 }
 
 
@@ -45,6 +62,7 @@ router.use('/', function(req, res, next) {
 	next();
 })
 
+
 router.get('/', function(req, res) {
 	console.log('createpollnewejs', req.user.displayName);
 	res.render('create-poll-new', {
@@ -52,14 +70,12 @@ router.get('/', function(req, res) {
 			name: req.user.displayName
 		}
 	})
-	
-
 });
 
 router.post('/', function(req, res) {
-
-	var poll = req.body;
-	storePoll(poll);
+	pollData = req.body;
+	console.log('createpollnew route polldata', pollData)
+	storePolls(pollData);
 });
 
 module.exports = router;

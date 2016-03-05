@@ -1,4 +1,5 @@
-var user = $('p').html();
+// var user = $('p').html();
+// console.log('user', user);
 
 
 var RecipeDialog = React.createClass({
@@ -47,18 +48,23 @@ var RecipeList = React.createClass({
 	  var self = this;
 
       var createIngredientsList = function (ingredients){
+      	// if (ingredients){
+
       	return (
-      			ingredients.map(function(ingredient){return <li className="list-group-item" key={ingredient}>{ingredient}</li>})
+      			ingredients.map(function(pollItem){
+      				console.log('pollitem.categorie', pollItem.categorie);
+      				return <li className="list-group-item" key={pollItem.categorie}>{pollItem.categorie}</li>})
       		)
-      }
+	    }
+      // }
 
 	  var createRecipeList = function(recipe){
 	  	var collapse = "#collapse" + recipe[0];
 	  	var idHeading = "heading" + recipe[0];
 	  	var idCollapse = "collapse" + recipe[0];
-	  	var recipeNumber = recipe[0];
-	  	var recipeTitle = recipe[1]; 
-	  	var ingredients = recipe.slice(2);
+	  	var recipeNumber = recipe.pollNumber;
+	  	var recipeTitle = recipe.pollName; 
+	  	var ingredients = recipe.pollItems;
 
 		return(
 			  <div className = "panel panel-default" key={recipeTitle}>
@@ -81,7 +87,7 @@ var RecipeList = React.createClass({
 
 	  return (
         <div>
-          <h1>Poll App</h1>
+          <h1>FCC Poll App</h1>
 		  <div className = "panel-group" id="accordion" role="tablist" >
 		    {this.props.recipes.map(createRecipeList)}
 		  </div>
@@ -95,7 +101,6 @@ var RecipeList = React.createClass({
 
 
 var RecipeBox = React.createClass({
-
 	getInitialState: function() {
 		var i;
 		var recipes = [];
@@ -113,6 +118,12 @@ var RecipeBox = React.createClass({
 			newRecipe: {recipeName: '', ingredients: ''},
 			editedRecipeIndex: null
 		};
+// var recipes = [{"pollNumber" : "One", "userName" : "Manolo S", "pollName" : "city", "pollItems" : [ { "categorie" : "rome", "votes" : 0 }, { "categorie" : " porto", "votes" : 0 }, { "categorie" : " medelin", "votes" : 0 } ]}];
+// 	    return {
+// 				recipes: recipes,
+// 				newRecipe: {recipeName: '', ingredients: ''},
+// 				editedRecipeIndex: null
+// 	    		};
 	},
 
 	setNewRecipeState: function(event) {
@@ -148,19 +159,53 @@ var RecipeBox = React.createClass({
 			this.state.editedRecipeIndex = null;
 		}
 
-		var pollArr = [];
-		var pollData;
 		this.state.recipes.forEach(function(recipe){
-			var categories = recipe.slice(2, recipe.length);
-			var poll = {pollNumber: recipe[0], userName: user, pollName: recipe[1], categories: categories };
-			pollArr.push(poll);
+			sessionStorage.setItem(index, recipe)
+			console.log('index', index, 'recipe', recipe);
+			console.log('sessionstorage', sessionStorage.getItem(index));
+			index++;
 		});
-		pollData = {pollData: pollArr};
-		console.log('pollData createpollnew', pollData)
-
-		$.post('http://localhost:3000/create-poll-new', pollData);
 
 		return this.setState({recipes: this.state.recipes});
+		
+		// var numbers = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six"};
+		// var recipe = [];
+		// var index = 0;
+        		
+		// if (this.state.editedRecipeIndex === null){
+		// 	var recipeNumber = this.state.recipes.length + 1;
+		// 	recipe.push(numbers[recipeNumber]);
+		// 	recipe.push(this.state.newRecipe["recipeName"]);
+		// 	var ingredients = this.state.newRecipe["ingredients"].split(",");
+		// 	ingredients.forEach(function(ingredient){recipe.push(ingredient)});
+		// 	this.state.recipes.push(recipe);
+		// } else {
+		// 	var index = this.state.editedRecipeIndex;
+		// 	console.log('index', index)
+		// 	var recipeNumber = index + 1;
+		// 	recipe.push(numbers[recipeNumber]);
+		// 	recipe.push(this.state.newRecipe["recipeName"]);
+		// 	var ingredients = this.state.newRecipe["ingredients"].split(",");
+		// 	ingredients.forEach(function(ingredient){recipe.push(ingredient)});
+		// 	this.state.recipes.splice(index, 1, recipe);
+		// 	this.state.editedRecipeIndex = null;
+		// }
+
+		// console.log(this.state.recipes);
+
+		// this.state.recipes.forEach(function(recipe){
+
+		// 	console.log('recipe', recipe);
+		// 	var pollNumber = recipe[0];
+		// 	var pollName = recipe[1];
+		// 	var categories = recipe.splice(2, recipe.length - 2);
+		// 	console.log('cat', categories)
+		// 	var poll = {pollNumber: pollNumber, userName: user, pollTitle: pollName, categories: categories};
+		// 	console.log('poll', poll);
+		//     // $.post('http://localhost:3000/create-poll-new', poll);
+		// });
+
+		//  return this.setState({recipes: this.state.recipes});
 		
 	},
 
@@ -186,32 +231,16 @@ var RecipeBox = React.createClass({
 	},
 
 	deleteRecipe: function(recipeNumber) {
+        console.log("deleteRecipe");
+		console.log("recipeNumber", recipeNumber)
 		var recipeIndex;
-		var i = 1;
-		var numbers = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six"};
-
 		this.state.recipes.map(function(recipe, index){
 			if (recipe[0] === recipeNumber){
 				recipeIndex = index;
 			}
 		});
+		console.log("index", recipeIndex);
 		this.state.recipes.splice(recipeIndex, 1)
-		this.state.recipes.map(function(recipe){
-			recipe[0] = numbers[i];
-			i++;
-		});
-
-		var pollArr = [];
-		var pollData;
-		this.state.recipes.forEach(function(recipe){
-			var categories = recipe.slice(2, recipe.length);
-			var poll = {pollNumber: recipe[0], userName: user, pollName: recipe[1], categories: categories };
-			pollArr.push(poll);
-		});
-		pollData = {pollData: pollArr};
-
-		$.post('http://localhost:3000/create-poll-new', pollData);
-		
 		return this.setState({recipes: this.state.recipes});
 	},
 
@@ -231,7 +260,6 @@ var RecipeBox = React.createClass({
 		  	}
 		},
 
-
 	render: function() {
 		return (
 			<div>
@@ -248,10 +276,5 @@ var RecipeBox = React.createClass({
 ReactDOM.render( <RecipeBox />, 
 document.getElementById('create-poll'));
 
-// $.getJSON('http://localhost:3000/userdata', {userName: user }, success);
-
-function success(result){
-	console.log(result);
-}
 
 

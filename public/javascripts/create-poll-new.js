@@ -165,7 +165,7 @@ function success(result){
 			pollData = {pollData: pollArr};
 			console.log('pollData createpollnew', pollData)
 
-			$.post('http://localhost:3000/create-poll-new', pollData);
+			$.post('https://poll-app-ms.herokuapp.com:3000/create-poll-new', pollData);
 
 			return this.setState({recipes: this.state.recipes});
 			
@@ -217,7 +217,7 @@ function success(result){
 			});
 			pollData = {pollData: pollArr};
 
-			$.post('http://localhost:3000/create-poll-new', pollData);
+			$.post('https://poll-app-ms.herokuapp.com:3000/create-poll-new', pollData);
 
 			return this.setState({recipes: this.state.recipes});
 		},
@@ -253,7 +253,7 @@ function success(result){
 	document.getElementById('create-poll'));
 }
 
-$.getJSON('http://localhost:3000/userdata', {userName: user }, success);
+$.getJSON('https://poll-app-ms.herokuapp.com:3000/userdata', {userName: user }, success);
 
 
 

@@ -14,11 +14,6 @@ var PollSchema = new Schema({
     pollItems: [PollItemSchema]
 });
 
-// var PollSchema = new Schema({
-//     pollName: String,
-//     pollItems: [PollItemSchema]
-// });
-
 module.exports = mongoose.model('polls', PollSchema);
 
 

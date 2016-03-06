@@ -8,8 +8,20 @@
     <link rel="stylesheet" href="/stylesheets/create-poll-new.css">
   </head>
   <body>
-    <p id='user'><%=user.name%><p>
-    <div id="create-poll"></div>
+  <nav class='navbar navbar-default container' id='navbar'>
+                <div class='navbar-header'>
+                    <a class='navbar-brand' href='#' id='brand'>FCC Voting App</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="http://localhost:3000" id='home'>Home</a>
+                    </li>
+                    <li>
+                       <span id='user'><%=user.name%></span>
+                    </li>
+                </ul>
+            </nav>
+              <div id="create-poll"></div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

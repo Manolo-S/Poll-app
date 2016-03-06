@@ -19,7 +19,7 @@ function storePoll (poll){
 	pollModel.create({
 		pollNumber: poll.pollNumber,
 		userName: poll.userName,
-		pollName: poll.pollTitle,
+		pollName: poll.pollName,
 		pollItems: poll.categories.map(createpollItems)
 	}, function(err, polls) {
 		if (!err) {

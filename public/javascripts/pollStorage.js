@@ -115,6 +115,6 @@ function success(result) {
 
 
 function abc() {
-    $.getJSON('https://poll-app-ms.herokuapp.com:3000/data/polldata', success)
+    $.getJSON('https://poll-app-ms.herokuapp.com/data/polldata', success)
 }
 

@@ -6,7 +6,7 @@ module.exports = function () {
     passport.use(new GoogleStrategy({
             clientID: '238028802445-233baqsfber7363ubbs9nlv5j5qtter6.apps.googleusercontent.com',
             clientSecret: '3ecF4hE3IFs0oLdpEsDcSJr9',
-            callbackURL: 'https://poll-app-ms.herokuapp.com:3000/auth/google/callback'
+            callbackURL: 'https://poll-app-ms.herokuapp.com/auth/google/callback'
         },
         function (req, accessToken, refreshToken, profile, done) {
             var user = {};

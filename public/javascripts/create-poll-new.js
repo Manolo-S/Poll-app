@@ -253,7 +253,7 @@ function success(result){
 	document.getElementById('create-poll'));
 }
 
-$.getJSON('https://poll-app-ms.herokuapp.com:3000/userdata', {userName: user }, success);
+$.getJSON('https://poll-app-ms.herokuapp.com/userdata', {userName: user }, success);
 
 
 

@@ -77,7 +77,7 @@ function updatePoll(){
     var votes = poll.pollItems[voteCategorie].votes;
     poll.pollItems[voteCategorie].votes = votes + 1;
     var updatedPoll = {updatedPoll: poll};
-    $.post('https://poll-app-ms.herokuapp.com:3000/store-vote', updatedPoll);
+    $.post('https://poll-app-ms.herokuapp.com/store-vote', updatedPoll);
     changeChart();
     //TODO add functionality to only vote once use localstorage?
 }

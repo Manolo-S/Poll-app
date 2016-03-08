@@ -16,7 +16,7 @@ router.route('/google')
 
 router.route('/twitter/callback')
     .get(passport.authenticate('twitter', {
-        successRedirect: '/create-poll/',
+        successRedirect: '/create-poll-new/',
         failure: '/error/'
     }));
 
@@ -31,7 +31,7 @@ router.route('/facebook')
 
 router.route('/facebook/callback')
     .get(passport.authenticate('facebook', {
-        successRedirect: '/create-poll',
+        successRedirect: '/create-poll-new',
         failureRedirect: '/error'
     }));
     

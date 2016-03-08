@@ -3,16 +3,15 @@ var TwitterStrategy = require('passport-twitter').Strategy;
 
 module.exports = function(){
 	passport.use(new TwitterStrategy({
-		consumerKey: '',
-		consumerSecret: '',
-		callbackURL: '',
+		consumerKey: '4pozJb8uU1m01B5wTQFOX96Db',
+		consumerSecret: 'rhePixEGTuDgGc6echiOg7S5vWmt52Vt8mJQ3a41kociIE789H',
+		callbackURL: 'https://poll-app-ms.herokuapp.com/auth/twitter/callback',
 		passReqToCallback: true
 	},
 	function(req, token, tokenSecret, profile, done){
 			var user = {};
         
-            user.image = profile._json.image.url;
-            user.displayName = profile.displayName;
+            user.displayName = profile._json.name;
         
             user.twitter = {};
             user.twitter.id = profile.id;
@@ -21,3 +20,7 @@ module.exports = function(){
             done(null, user);
 	}))
 };
+
+
+
+

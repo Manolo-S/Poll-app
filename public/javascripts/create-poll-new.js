@@ -217,7 +217,7 @@ function success(result){
 			});
 			pollData = {pollData: pollArr};
 
-			$.post('https://poll-app-ms.herokuapp.com:3000/create-poll-new', pollData);
+			$.post('https://poll-app-ms.herokuapp.com/create-poll-new', pollData);
 
 			return this.setState({recipes: this.state.recipes});
 		},
